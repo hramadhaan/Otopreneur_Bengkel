@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancel_judul"
+        android:text="Alasan Pembatalan"
+        android:fontFamily="@font/sfbold"
+        android:textSize="18dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Silahkan beri alasan"
+        android:layout_below="@id/cancel_judul"
+        android:id="@+id/cancel_tv_alasan"
+        android:fontFamily="@font/sf"
+        android:textSize="14dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancel_alasan"
+        android:layout_below="@id/cancel_tv_alasan"
+        android:hint="Masukkan alasan"
+        />
+
+    <TextView
+        android:id="@+id/cancel_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="DONE"
+        android:textSize="18dp"
+        android:textColor="#43b450"
+        android:fontFamily="@font/sfbold"/>
+
+</RelativeLayout>

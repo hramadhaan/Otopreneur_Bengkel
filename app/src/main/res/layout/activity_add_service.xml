@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Daftar_Service.AddServiceActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/addservice_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/addservice_toolbar"
+            android:layout_width="match_parent"
+            app:theme="@style/Widget.AppCompat.ActionBar.TabBar"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/addservice_judul"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Service"
+                    android:textColor="#000"
+                    android:fontFamily="@font/sfbold"
+                    android:textSize="20dp"/>
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/addservice_appbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addservice_tv_tipeservice"
+            android:text="Tipe Service"
+            android:fontFamily="@font/sfbold"
+            android:textSize="18dp"
+            />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/addservice_spinner"
+            android:layout_below="@id/addservice_tv_tipeservice"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addservice_tv_jeniskendaraan"
+            android:layout_below="@id/addservice_spinner"
+            android:layout_marginTop="10dp"
+            android:text="Jenis Kendaraan"
+            android:fontFamily="@font/sfbold"
+            android:textSize="18dp"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addservice_tv_jeniskendaraan"
+            android:id="@+id/addservice_jeniskendaraan"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addservice_tv_harga"
+            android:layout_below="@id/addservice_jeniskendaraan"
+            android:layout_marginTop="10dp"
+            android:text="Harga"
+            android:fontFamily="@font/sfbold"
+            android:textSize="18dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/addservice_harga"
+            android:inputType="number"
+            android:layout_below="@id/addservice_tv_harga"
+            />
+
+        <Button
+            android:id="@+id/addservice_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_hijau"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:text="Save"
+            android:textColor="#fff"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

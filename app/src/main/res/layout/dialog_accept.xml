@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Silahkan Input Estimasi"
+        android:fontFamily="@font/sfbold"
+        android:textSize="20dp"
+        android:id="@+id/accept_judul"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accept_tv_waktu"
+        android:layout_below="@id/accept_judul"
+        android:text="Waktu"
+        android:fontFamily="@font/sf"
+        android:textSize="16dp"
+        android:layout_marginTop="15dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/accept_waktu"
+        android:inputType="number"
+        android:hint="Masukkan Estimasi Waktu"
+        android:layout_below="@id/accept_tv_waktu"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accept_tv_harga"
+        android:layout_below="@id/accept_waktu"
+        android:layout_marginTop="5dp"
+        android:textSize="16dp"
+        android:text="Ongkos"
+        android:fontFamily="@font/sf"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/accept_ongkos"
+        android:layout_below="@id/accept_tv_harga"
+        android:inputType="number"
+        android:hint="Masukkan Ongkos"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accept_done"
+        android:layout_alignParentRight="true"
+        android:text="DONE"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/sfbold"
+        android:textSize="18dp"
+        android:textColor="#ed1c24"/>
+
+</RelativeLayout>
