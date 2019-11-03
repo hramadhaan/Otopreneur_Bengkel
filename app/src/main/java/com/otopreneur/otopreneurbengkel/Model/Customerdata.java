@@ -31,6 +31,9 @@ public class Customerdata {
     @SerializedName("remember_token")
     @Expose
     private Object rememberToken;
+    @SerializedName("status")
+    @Expose
+    private String status;
     @SerializedName("settings")
     @Expose
     private String settings;
@@ -41,7 +44,7 @@ public class Customerdata {
     @Expose
     private Object updatedAt;
 
-    public Customerdata(Integer id, Integer roleId, String name, String email, String phone, String avatar, Object emailVerifiedAt, String password, Object rememberToken, String settings, Object createdAt, Object updatedAt) {
+    public Customerdata(Integer id, Integer roleId, String name, String email, String phone, String avatar, Object emailVerifiedAt, String password, Object rememberToken, String status, String settings, Object createdAt, Object updatedAt) {
         this.id = id;
         this.roleId = roleId;
         this.name = name;
@@ -51,6 +54,7 @@ public class Customerdata {
         this.emailVerifiedAt = emailVerifiedAt;
         this.password = password;
         this.rememberToken = rememberToken;
+        this.status = status;
         this.settings = settings;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -126,6 +130,14 @@ public class Customerdata {
 
     public void setRememberToken(Object rememberToken) {
         this.rememberToken = rememberToken;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getSettings() {

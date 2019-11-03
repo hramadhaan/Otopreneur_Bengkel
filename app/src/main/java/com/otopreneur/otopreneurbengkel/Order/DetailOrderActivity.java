@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -35,6 +36,8 @@ public class DetailOrderActivity extends AppCompatActivity {
     String hasil_customer,hasil_tipekendaraan,hasil_tipeservice,hasil_lokasi, invoice_get;
 
     Toolbar toolbar;
+
+    String cek_waktu,cek_harga;
 
     int hasil_invoice,harga,time;
     int invoice;
@@ -137,29 +140,35 @@ public class DetailOrderActivity extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                harga = Integer.parseInt(ongkos.getText().toString());
-                time = Integer.parseInt(waktu.getText().toString());
-                Call<Invoice> processOrder = apiService.processAccept(hasil_invoice,harga,time);
-                processOrder.enqueue(new Callback<Invoice>() {
-                    @Override
-                    public void onResponse(Call<Invoice> call, Response<Invoice> response) {
-                        if (response.isSuccessful()){
-                            invoice = response.body().getInvoiceNo();
-                            appState.setInvoice(invoice);
-                            appState.setIsOrdered(true);
-                            startActivity(new Intent(DetailOrderActivity.this,OrderAcceptActivity.class));
-                            finish();
-                        } else {
+                cek_harga = ongkos.getText().toString();
+                cek_waktu = waktu.getText().toString();
+                if (TextUtils.isEmpty(cek_harga)||TextUtils.isEmpty(cek_waktu)){
+                    Toast.makeText(DetailOrderActivity.this,"Masukkan Estimasi Waktu dan Harga",Toast.LENGTH_LONG).show();
+                } else {
+                    harga = Integer.parseInt(ongkos.getText().toString());
+                    time = Integer.parseInt(waktu.getText().toString());
+                    Call<Invoice> processOrder = apiService.processAccept(hasil_invoice,harga,time);
+                    processOrder.enqueue(new Callback<Invoice>() {
+                        @Override
+                        public void onResponse(Call<Invoice> call, Response<Invoice> response) {
+                            if (response.isSuccessful()){
+                                invoice = response.body().getInvoiceNo();
+                                appState.setInvoice(invoice);
+                                appState.setIsOrdered(true);
+                                startActivity(new Intent(DetailOrderActivity.this,OrderAcceptActivity.class));
+                                finish();
+                            } else {
+
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Invoice> call, Throwable t) {
 
                         }
-                    }
-
-                    @Override
-                    public void onFailure(Call<Invoice> call, Throwable t) {
-
-                    }
-                });
-                dAccept.dismiss();
+                    });
+                    dAccept.dismiss();
+                }
             }
         });
         dAccept.show();

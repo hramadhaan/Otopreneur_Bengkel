@@ -1,48 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.cardview.widget.CardView app:cardElevation="5dp"
+    android:background="@drawable/card"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginVertical="5dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    android:layout_marginVertical="3dp"
     android:id="@+id/history"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cecep"
-        android:fontFamily="@font/sfbold"
-        android:textSize="18dp"
-        android:id="@+id/item_history_nama"/>
+        android:layout_marginHorizontal="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cecep"
+            android:fontFamily="@font/sfbold"
+            android:textSize="18dp"
+            android:id="@+id/item_history_nama"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/item_history_alamat"
-        android:text="Alamat"
-        android:layout_below="@id/item_history_nama"
-        android:layout_marginTop="8dp"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_history_alamat"
+            android:text="Alamat"
+            android:layout_below="@id/item_history_nama"
+            android:layout_marginTop="8dp"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/item_histoy_status"
-        android:fontFamily="@font/sfbold"
-        android:textStyle="bold"
-        android:text="Canceled"
-        android:layout_below="@id/item_history_alamat"
-        android:layout_marginTop="8dp"
-        android:textSize="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_histoy_status"
+            android:fontFamily="@font/sfbold"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:text="Canceled"
+            android:layout_below="@id/item_history_alamat"
+            android:layout_marginTop="8dp"
+            android:textSize="16dp"/>
 
-    <ImageView
-        android:id="@+id/item_history_foto"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="15dp"
-        android:layout_centerVertical="true"/>
+        <ImageView
+            android:id="@+id/item_history_foto"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 
-
-</RelativeLayout>
+</androidx.cardview.widget.CardView>

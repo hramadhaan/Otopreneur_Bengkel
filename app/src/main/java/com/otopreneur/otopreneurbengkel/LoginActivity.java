@@ -56,10 +56,4 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Toast.makeText(LoginActivity.this,"Good Bye",Toast.LENGTH_LONG).show();
-    }
 }

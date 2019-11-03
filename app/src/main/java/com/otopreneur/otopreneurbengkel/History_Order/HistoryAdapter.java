@@ -13,9 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.otopreneur.otopreneurbengkel.Model.History;
 import com.otopreneur.otopreneurbengkel.R;
 
@@ -57,12 +59,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         Glide.with(context)
                 .asBitmap()
                 .load(histories.get(position).getCustomerdata().getAvatar())
+                .apply(RequestOptions.circleCropTransform())
                 .into(holder.history_foto);
 
         holder.history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "On Cliked: "+histories.get(position).getCustomerdata().getName(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "On Cliked: "+histories.get(position).getCustomerdata().getName(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context,DetailHistoryActivity.class);
                 intent.putExtra("invoice",histories.get(position).getInvoiceNo());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -79,7 +82,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView history_nama,history_alamat,status;
         ImageView history_foto;
-        RelativeLayout history;
+        CardView history;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             history_nama = itemView.findViewById(R.id.item_history_nama);

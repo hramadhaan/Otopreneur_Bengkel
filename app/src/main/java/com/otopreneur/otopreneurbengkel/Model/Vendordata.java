@@ -31,6 +31,9 @@ public class Vendordata {
     @SerializedName("remember_token")
     @Expose
     private Object rememberToken;
+    @SerializedName("status")
+    @Expose
+    private String status;
     @SerializedName("settings")
     @Expose
     private String settings;
@@ -39,9 +42,9 @@ public class Vendordata {
     private Object createdAt;
     @SerializedName("updated_at")
     @Expose
-    private Object updatedAt;
+    private String updatedAt;
 
-    public Vendordata(Integer id, Integer roleId, String name, String email, String phone, String avatar, Object emailVerifiedAt, String password, Object rememberToken, String settings, Object createdAt, Object updatedAt) {
+    public Vendordata(Integer id, Integer roleId, String name, String email, String phone, String avatar, Object emailVerifiedAt, String password, Object rememberToken, String status, String settings, Object createdAt, String updatedAt) {
         this.id = id;
         this.roleId = roleId;
         this.name = name;
@@ -51,10 +54,12 @@ public class Vendordata {
         this.emailVerifiedAt = emailVerifiedAt;
         this.password = password;
         this.rememberToken = rememberToken;
+        this.status = status;
         this.settings = settings;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
 
     public Integer getId() {
         return id;
@@ -128,6 +133,14 @@ public class Vendordata {
         this.rememberToken = rememberToken;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getSettings() {
         return settings;
     }
@@ -144,11 +157,11 @@ public class Vendordata {
         this.createdAt = createdAt;
     }
 
-    public Object getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Object updatedAt) {
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
 }

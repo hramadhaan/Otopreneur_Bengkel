@@ -8,16 +8,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.otopreneur.otopreneurbengkel.Dashboard.DaftarServiceActivity;
 import com.otopreneur.otopreneurbengkel.Dashboard.HistoryOrderActivity;
 import com.otopreneur.otopreneurbengkel.Dashboard.OrderActivity;
 import com.otopreneur.otopreneurbengkel.Dashboard.SettingsActivity;
 import com.otopreneur.otopreneurbengkel.Data.AppState;
+import com.otopreneur.otopreneurbengkel.Model.Userdata;
 import com.otopreneur.otopreneurbengkel.Order.OrderAcceptActivity;
 
 public class DashboardActivity extends AppCompatActivity {
     CardView daftarservice,order,history,settings;
+    TextView nama;
+    RelativeLayout relativeLayout;
     AppState appState;
 
     @Override
@@ -44,6 +49,10 @@ public class DashboardActivity extends AppCompatActivity {
             finish();
         }
 
+        nama = findViewById(R.id.dashboard_nama);
+
+        Userdata currentUser = AppState.getInstance().getUser();
+        nama.setText(currentUser.getName());
         daftarservice = findViewById(R.id.dashboard_cv_daftarservice);
         daftarservice.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +82,12 @@ public class DashboardActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        nyalainStatus();
+
+    }
+
+    private void nyalainStatus() {
 
     }
 }

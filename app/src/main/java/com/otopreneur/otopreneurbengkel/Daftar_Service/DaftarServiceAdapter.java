@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.otopreneur.otopreneurbengkel.Model.Service;
 import com.otopreneur.otopreneurbengkel.R;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class DaftarServiceAdapter extends RecyclerView.Adapter<DaftarServiceAdapter.ViewHolder> {
@@ -37,7 +39,10 @@ public class DaftarServiceAdapter extends RecyclerView.Adapter<DaftarServiceAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        holder.harga.setText(serviceList.get(position).getCost().toString());
+        NumberFormat formatter = new DecimalFormat("#,###");
+        int myNumber = serviceList.get(position).getCost();
+        String formatedNumber = formatter.format(myNumber);
+        holder.harga.setText("Rp. "+formatedNumber);
         holder.service.setText(serviceList.get(position).getService());
         holder.kendaraan.setText(serviceList.get(position).getVenichle());
 

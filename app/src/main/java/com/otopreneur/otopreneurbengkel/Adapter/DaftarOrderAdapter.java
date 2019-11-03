@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -76,13 +77,13 @@ public class DaftarOrderAdapter extends RecyclerView.Adapter<DaftarOrderAdapter.
 
     @Override
     public int getItemCount() {
-        return 0;
+        return orderList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView order_nama,order_alamat,status;
         ImageView order_foto;
-        RelativeLayout order;
+        CardView order;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             order = itemView.findViewById(R.id.order);

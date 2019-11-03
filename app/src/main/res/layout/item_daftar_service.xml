@@ -1,51 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:elevation="5dp"
+    android:background="@drawable/card"
+    android:layout_marginTop="8dp"
+    app:cardElevation="2dp"
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/daftarservice_item_atas">
-        <TextView
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/daftarservice_item_service"
-            android:text="Ganti Oli"
-            android:fontFamily="@font/sf"
-            android:textSize="16dp"/>
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/daftarservice_item_atas">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/daftarservice_item_service"
+                    android:text="Ganti Oli"
+                    android:fontFamily="@font/sf"
+                    android:textSize="16dp"/>
 
-        <TextView
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/daftarservice_item_harga"
-            android:layout_alignParentRight="true"
-            android:text="Rp. 10.000"
-            android:fontFamily="@font/sfbold"
-            android:textSize="18dp"/>
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/daftarservice_item_harga"
+                    android:layout_alignParentRight="true"
+                    android:text="Rp. 10.000"
+                    android:fontFamily="@font/sfbold"
+                    android:textSize="18dp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/daftarservice_tipeKendaraan"
+                android:text="Mobil"
+                android:layout_marginTop="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/daftarservice_item_atas"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/daftarservice_item_edit"
+                android:fontFamily="@font/sfbold"
+                android:textSize="16dp"
+                android:text="Lihat Service"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/daftarservice_tipeKendaraan"
+                android:textColor="#ed1c24"/>
+        </RelativeLayout>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/daftarservice_tipeKendaraan"
-        android:text="Mobil"
-        android:layout_marginTop="2dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/daftarservice_item_atas"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/daftarservice_item_edit"
-        android:fontFamily="@font/sfbold"
-        android:textSize="16dp"
-        android:text="Lihat Service"
-        android:layout_marginTop="5dp"
-        android:layout_below="@id/daftarservice_tipeKendaraan"
-        android:textColor="#ed1c24"/>
-
-</RelativeLayout>
+</androidx.cardview.widget.CardView>
