@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Userdata {
+
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -18,7 +19,7 @@ public class Userdata {
     private String email;
     @SerializedName("phone")
     @Expose
-    private String phone;
+    private Object phone;
     @SerializedName("avatar")
     @Expose
     private String avatar;
@@ -27,18 +28,24 @@ public class Userdata {
     private Object emailVerifiedAt;
     @SerializedName("remember_token")
     @Expose
-    private Object rememberToken;
+    private String rememberToken;
+    @SerializedName("status")
+    @Expose
+    private String status;
+    @SerializedName("otp_code")
+    @Expose
+    private Object otpCode;
     @SerializedName("settings")
     @Expose
     private String settings;
     @SerializedName("created_at")
     @Expose
-    private Object createdAt;
+    private String createdAt;
     @SerializedName("updated_at")
     @Expose
-    private Object updatedAt;
+    private String updatedAt;
 
-    public Userdata(Integer id, Integer roleId, String name, String email, String phone, String avatar, Object emailVerifiedAt, Object rememberToken, String settings, Object createdAt, Object updatedAt) {
+    public Userdata(Integer id, Integer roleId, String name, String email, Object phone, String avatar, Object emailVerifiedAt, String rememberToken, String status, Object otpCode, String settings, String createdAt, String updatedAt) {
         this.id = id;
         this.roleId = roleId;
         this.name = name;
@@ -47,6 +54,8 @@ public class Userdata {
         this.avatar = avatar;
         this.emailVerifiedAt = emailVerifiedAt;
         this.rememberToken = rememberToken;
+        this.status = status;
+        this.otpCode = otpCode;
         this.settings = settings;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -84,11 +93,11 @@ public class Userdata {
         this.email = email;
     }
 
-    public String getPhone() {
+    public Object getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Object phone) {
         this.phone = phone;
     }
 
@@ -108,12 +117,28 @@ public class Userdata {
         this.emailVerifiedAt = emailVerifiedAt;
     }
 
-    public Object getRememberToken() {
+    public String getRememberToken() {
         return rememberToken;
     }
 
-    public void setRememberToken(Object rememberToken) {
+    public void setRememberToken(String rememberToken) {
         this.rememberToken = rememberToken;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Object getOtpCode() {
+        return otpCode;
+    }
+
+    public void setOtpCode(Object otpCode) {
+        this.otpCode = otpCode;
     }
 
     public String getSettings() {
@@ -124,19 +149,19 @@ public class Userdata {
         this.settings = settings;
     }
 
-    public Object getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Object createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Object getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Object updatedAt) {
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
 }

@@ -10,6 +10,7 @@ import com.otoprenuer.vendor_otopreneur.Model.SpesificOrder;
 import com.otoprenuer.vendor_otopreneur.Model.Status;
 import com.otoprenuer.vendor_otopreneur.Model.Token;
 import com.otoprenuer.vendor_otopreneur.Model.User;
+import com.otoprenuer.vendor_otopreneur.Model.Userdata;
 import com.otoprenuer.vendor_otopreneur.Model.Variant;
 
 import java.util.List;
@@ -93,4 +94,16 @@ public interface ApiService {
             @Field("id_service") int id_service,
             @Field("cost") int cost
     );
+
+    @GET("getAPI/editUserStatus/{id_vendor}/{status}")
+    Call<Status> editStatus(
+            @Path("id_vendor") int id_vendor,
+            @Path("status") String status
+    );
+
+    @GET("getAPI/getSpecificVendor/{id_vendor}")
+    Call<Userdata> getStatus(
+      @Path("id_vendor") int id_vendor
+    );
+
 }
