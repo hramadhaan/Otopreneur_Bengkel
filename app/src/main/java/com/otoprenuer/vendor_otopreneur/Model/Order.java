@@ -37,6 +37,12 @@ public class Order {
     @SerializedName("service")
     @Expose
     private String service;
+    @SerializedName("latitude")
+    @Expose
+    private String latitude;
+    @SerializedName("longitude")
+    @Expose
+    private String longitude;
     @SerializedName("venichle_series")
     @Expose
     private String venichleSeries;
@@ -50,7 +56,7 @@ public class Order {
     @Expose
     private Vendordata vendordata;
 
-    public Order(Integer id, Integer invoiceNo, String venicheType, Integer customer, String location, String note, Integer vendor, Object price, Object duration, String time, String service, String venichleSeries, String status, Customerdata customerdata, Vendordata vendordata) {
+    public Order(Integer id, Integer invoiceNo, String venicheType, Integer customer, String location, String note, Integer vendor, Object price, Object duration, String time, String service, String latitude, String longitude, String venichleSeries, String status, Customerdata customerdata, Vendordata vendordata) {
         this.id = id;
         this.invoiceNo = invoiceNo;
         this.venicheType = venicheType;
@@ -62,6 +68,8 @@ public class Order {
         this.duration = duration;
         this.time = time;
         this.service = service;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.venichleSeries = venichleSeries;
         this.status = status;
         this.customerdata = customerdata;
@@ -154,6 +162,22 @@ public class Order {
 
     public void setService(String service) {
         this.service = service;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
     public String getVenichleSeries() {

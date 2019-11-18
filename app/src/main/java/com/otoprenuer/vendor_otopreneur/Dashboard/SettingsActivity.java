@@ -18,11 +18,13 @@ import com.otoprenuer.vendor_otopreneur.Data.AppState;
 import com.otoprenuer.vendor_otopreneur.LoginActivity;
 import com.otoprenuer.vendor_otopreneur.Model.Userdata;
 import com.otoprenuer.vendor_otopreneur.R;
+import com.otoprenuer.vendor_otopreneur.Settings.DataPersonal;
+import com.otoprenuer.vendor_otopreneur.Settings.UbahPassword;
 
 public class SettingsActivity extends AppCompatActivity {
 
     ImageView avatar;
-    TextView name,logout;
+    TextView name,logout,data,password;
 
     String hasilName;
 
@@ -39,6 +41,21 @@ public class SettingsActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+
+        password = findViewById(R.id.settings_ganti);
+        password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingsActivity.this, UbahPassword.class));
+            }
+        });
+        data = findViewById(R.id.settings_data);
+        data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingsActivity.this, DataPersonal.class));
+            }
+        });
 
         toolbar = findViewById(R.id.settings_toolbar);
         setSupportActionBar(toolbar);

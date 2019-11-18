@@ -34,6 +34,9 @@ public class Customerdata {
     @SerializedName("status")
     @Expose
     private String status;
+    @SerializedName("otp_code")
+    @Expose
+    private Object otpCode;
     @SerializedName("settings")
     @Expose
     private String settings;
@@ -42,9 +45,13 @@ public class Customerdata {
     private Object createdAt;
     @SerializedName("updated_at")
     @Expose
-    private Object updatedAt;
+    private String updatedAt;
 
-    public Customerdata(Integer id, Integer roleId, String name, String email, String phone, String avatar, Object emailVerifiedAt, String password, Object rememberToken, String status, String settings, Object createdAt, Object updatedAt) {
+    public Integer getId() {
+        return id;
+    }
+
+    public Customerdata(Integer id, Integer roleId, String name, String email, String phone, String avatar, Object emailVerifiedAt, String password, Object rememberToken, String status, Object otpCode, String settings, Object createdAt, String updatedAt) {
         this.id = id;
         this.roleId = roleId;
         this.name = name;
@@ -55,13 +62,10 @@ public class Customerdata {
         this.password = password;
         this.rememberToken = rememberToken;
         this.status = status;
+        this.otpCode = otpCode;
         this.settings = settings;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public void setId(Integer id) {
@@ -140,6 +144,14 @@ public class Customerdata {
         this.status = status;
     }
 
+    public Object getOtpCode() {
+        return otpCode;
+    }
+
+    public void setOtpCode(Object otpCode) {
+        this.otpCode = otpCode;
+    }
+
     public String getSettings() {
         return settings;
     }
@@ -156,11 +168,11 @@ public class Customerdata {
         this.createdAt = createdAt;
     }
 
-    public Object getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Object updatedAt) {
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
 }

@@ -68,6 +68,8 @@ public class DaftarOrderAdapter extends RecyclerView.Adapter<DaftarOrderAdapter.
                 intent.putExtra("tipekendaraan",orderList.get(position).getVenichleSeries());
                 intent.putExtra("tipeservice",orderList.get(position).getNote());
                 intent.putExtra("lokasi",orderList.get(position).getLocation());
+                intent.putExtra("latitude",orderList.get(position).getLatitude());
+                intent.putExtra("longtitude",orderList.get(position).getLongitude());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

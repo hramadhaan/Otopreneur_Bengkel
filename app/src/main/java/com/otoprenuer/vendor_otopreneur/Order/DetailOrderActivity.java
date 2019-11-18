@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -33,7 +34,7 @@ public class DetailOrderActivity extends AppCompatActivity {
     Button accept,cancel;
 
     Dialog dAccept,dCancel;
-    String hasil_customer,hasil_tipekendaraan,hasil_tipeservice,hasil_lokasi, invoice_get;
+    String hasil_customer,hasil_tipekendaraan,hasil_tipeservice,hasil_lokasi, invoice_get,hasil_latitude,hasil_longtitude;
 
     Toolbar toolbar;
 
@@ -85,11 +86,22 @@ public class DetailOrderActivity extends AppCompatActivity {
         hasil_tipekendaraan = intent.getStringExtra("tipekendaraan");
         hasil_tipeservice = intent.getStringExtra("tipeservice");
         hasil_invoice = intent.getIntExtra("invoice",0);
+        hasil_latitude = intent.getStringExtra("latitude");
+        hasil_longtitude = intent.getStringExtra("longtitude");
 
         customer.setText(hasil_customer);
         tipekendaraan.setText(hasil_tipekendaraan);
         tipeservice.setText(hasil_tipeservice);
         lokasi.setText(hasil_lokasi);
+        lokasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String strUri = "http://maps.google.com/maps?q=loc:" + hasil_latitude + "," + hasil_longtitude + " (" + hasil_lokasi + ")";
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(strUri));
+                intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+                startActivity(intent);
+            }
+        });
 
         accept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,13 +120,13 @@ public class DetailOrderActivity extends AppCompatActivity {
                             Toast.makeText(DetailOrderActivity.this,"Status anda : "+response.body().getStatus(),Toast.LENGTH_LONG).show();
                             keluar();
                         } else {
-
+                            Toast.makeText(DetailOrderActivity.this,response.message(),Toast.LENGTH_LONG).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ChangeStatus> call, Throwable t) {
-
+                        Toast.makeText(DetailOrderActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -158,13 +170,13 @@ public class DetailOrderActivity extends AppCompatActivity {
                                 startActivity(new Intent(DetailOrderActivity.this,OrderAcceptActivity.class));
                                 finish();
                             } else {
-
+                                Toast.makeText(DetailOrderActivity.this,response.message(),Toast.LENGTH_LONG).show();
                             }
                         }
 
                         @Override
                         public void onFailure(Call<Invoice> call, Throwable t) {
-
+                            Toast.makeText(DetailOrderActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
                         }
                     });
                     dAccept.dismiss();

@@ -66,11 +66,11 @@ public class OrderActivity extends AppCompatActivity {
         }
 
 //        INTENT
-        Intent getIntent = getIntent();
-        customer = getIntent.getStringExtra("customer");
-        tipeKendaraan = getIntent.getStringExtra("tipekendaraan");
-        lokasi = getIntent.getStringExtra("lokasi");
-        tipeService = getIntent.getStringExtra("tipeservice");
+//        Intent getIntent = getIntent();
+//        customer = getIntent.getStringExtra("customer");
+//        tipeKendaraan = getIntent.getStringExtra("tipekendaraan");
+//        lokasi = getIntent.getStringExtra("lokasi");
+//        tipeService = getIntent.getStringExtra("tipeservice");
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -94,12 +94,14 @@ public class OrderActivity extends AppCompatActivity {
                     if (adapter.getItemCount()==0){
                         Toast.makeText(OrderActivity.this,"Tidak Ada Order",Toast.LENGTH_LONG).show();
                     }
+                } else {
+                    Toast.makeText(OrderActivity.this,response.message(),Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Order>> call, Throwable t) {
-
+                Toast.makeText(OrderActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
     }

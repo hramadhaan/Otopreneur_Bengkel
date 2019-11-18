@@ -30,7 +30,7 @@ public class OrderAcceptActivity extends AppCompatActivity {
 
     TextView finish, customer, tipeKendaraan, tipeService, lokasi;
     int invoice_no;
-    String no_invoice, nomor;
+    String no_invoice, nomor, hasil_latitude, hasil_longtitude, hasil_lokasi;
 
     Button telepon;
 
@@ -82,6 +82,16 @@ public class OrderAcceptActivity extends AppCompatActivity {
 
         refresh();
 
+        lokasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String strUri = "http://maps.google.com/maps?q=loc:" + hasil_latitude + "," + hasil_longtitude + " (" + hasil_lokasi + ")";
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(strUri));
+                intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+                startActivity(intent);
+            }
+        });
+
         telepon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,13 +122,13 @@ public class OrderAcceptActivity extends AppCompatActivity {
                     Toast.makeText(OrderAcceptActivity.this, "Status anda : " + response.body().getStatus(), Toast.LENGTH_LONG).show();
                     keluar();
                 } else {
-
+                    Toast.makeText(OrderAcceptActivity.this,response.message(),Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ChangeStatus> call, Throwable t) {
-
+                Toast.makeText(OrderAcceptActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -146,7 +156,7 @@ public class OrderAcceptActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Invoice> call, Throwable t) {
-
+                Toast.makeText(OrderAcceptActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -163,14 +173,17 @@ public class OrderAcceptActivity extends AppCompatActivity {
                     tipeService.setText(response.body().getNote());
                     lokasi.setText(response.body().getLocation());
                     nomor = response.body().getCustomerdata().getPhone();
+                    hasil_latitude = response.body().getLatitude();
+                    hasil_longtitude = response.body().getLongitude();
+                    hasil_lokasi = response.body().getLocation();
                 } else {
-
+                    Toast.makeText(OrderAcceptActivity.this,response.message(),Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Invoice> call, Throwable t) {
-
+                Toast.makeText(OrderAcceptActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
     }

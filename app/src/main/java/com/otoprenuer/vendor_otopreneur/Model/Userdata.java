@@ -19,16 +19,19 @@ public class Userdata {
     private String email;
     @SerializedName("phone")
     @Expose
-    private Object phone;
+    private String phone;
     @SerializedName("avatar")
     @Expose
     private String avatar;
     @SerializedName("email_verified_at")
     @Expose
     private Object emailVerifiedAt;
+    @SerializedName("password")
+    @Expose
+    private String password;
     @SerializedName("remember_token")
     @Expose
-    private String rememberToken;
+    private Object rememberToken;
     @SerializedName("status")
     @Expose
     private String status;
@@ -40,12 +43,12 @@ public class Userdata {
     private String settings;
     @SerializedName("created_at")
     @Expose
-    private String createdAt;
+    private Object createdAt;
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
 
-    public Userdata(Integer id, Integer roleId, String name, String email, Object phone, String avatar, Object emailVerifiedAt, String rememberToken, String status, Object otpCode, String settings, String createdAt, String updatedAt) {
+    public Userdata(Integer id, Integer roleId, String name, String email, String phone, String avatar, Object emailVerifiedAt, String password, Object rememberToken, String status, Object otpCode, String settings, Object createdAt, String updatedAt) {
         this.id = id;
         this.roleId = roleId;
         this.name = name;
@@ -53,6 +56,7 @@ public class Userdata {
         this.phone = phone;
         this.avatar = avatar;
         this.emailVerifiedAt = emailVerifiedAt;
+        this.password = password;
         this.rememberToken = rememberToken;
         this.status = status;
         this.otpCode = otpCode;
@@ -93,11 +97,11 @@ public class Userdata {
         this.email = email;
     }
 
-    public Object getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Object phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -117,11 +121,19 @@ public class Userdata {
         this.emailVerifiedAt = emailVerifiedAt;
     }
 
-    public String getRememberToken() {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Object getRememberToken() {
         return rememberToken;
     }
 
-    public void setRememberToken(String rememberToken) {
+    public void setRememberToken(Object rememberToken) {
         this.rememberToken = rememberToken;
     }
 
@@ -149,11 +161,11 @@ public class Userdata {
         this.settings = settings;
     }
 
-    public String getCreatedAt() {
+    public Object getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(Object createdAt) {
         this.createdAt = createdAt;
     }
 
