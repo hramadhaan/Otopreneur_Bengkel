@@ -47,6 +47,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SettingsActivity.this, UbahPassword.class));
+                finish();
             }
         });
         data = findViewById(R.id.settings_data);

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.otoprenuer.vendor_otopreneur.Data.AppState;
 import com.otoprenuer.vendor_otopreneur.Network.ApiService;
@@ -15,6 +16,7 @@ import com.otoprenuer.vendor_otopreneur.Utils.ApiUtils;
 
 public class LoginActivity extends AppCompatActivity {
     Button button_login;
+    TextView forget;
 
     private AppState appStatee;
     private ApiService apiService;
@@ -26,6 +28,13 @@ public class LoginActivity extends AppCompatActivity {
 
         appStatee = AppState.getInstance();
         apiService = ApiUtils.getApiService();
+        forget = findViewById(R.id.login_lupapassword);
+        forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,LupaPassword.class));
+            }
+        });
 
         if (android.os.Build.VERSION.SDK_INT >= 21){
             Window window = this.getWindow();

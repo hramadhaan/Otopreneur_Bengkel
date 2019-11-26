@@ -3,6 +3,7 @@ package com.otoprenuer.vendor_otopreneur.Settings;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.otoprenuer.vendor_otopreneur.Dashboard.SettingsActivity;
 import com.otoprenuer.vendor_otopreneur.Data.AppState;
 import com.otoprenuer.vendor_otopreneur.Model.Userdata;
 import com.otoprenuer.vendor_otopreneur.Network.ApiService;
@@ -30,6 +32,8 @@ public class DataPersonal extends AppCompatActivity {
     int id_vendor;
 
     Toolbar toolbar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,5 +86,13 @@ public class DataPersonal extends AppCompatActivity {
                 Toast.makeText(DataPersonal.this,t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(DataPersonal.this, SettingsActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

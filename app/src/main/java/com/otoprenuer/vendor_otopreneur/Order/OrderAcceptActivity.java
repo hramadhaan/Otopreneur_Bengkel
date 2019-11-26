@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -172,6 +173,7 @@ public class OrderAcceptActivity extends AppCompatActivity {
                     tipeKendaraan.setText(response.body().getVenicheType());
                     tipeService.setText(response.body().getNote());
                     lokasi.setText(response.body().getLocation());
+                    lokasi.setPaintFlags(lokasi.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                     nomor = response.body().getCustomerdata().getPhone();
                     hasil_latitude = response.body().getLatitude();
                     hasil_longtitude = response.body().getLongitude();

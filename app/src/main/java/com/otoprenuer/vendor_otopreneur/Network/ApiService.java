@@ -106,4 +106,15 @@ public interface ApiService {
       @Path("id_vendor") int id_vendor
     );
 
+    @GET("getAPI/changePassword/{email}/{password}")
+    Call<Status> changePassword(
+            @Path("email") String email,
+            @Path("password") String password
+    );
+
+    @GET("getAPI/forgetPassword/{email}")
+    Call<Status> forgetPassword (
+            @Path("email") String email
+    );
+
 }

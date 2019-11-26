@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_bengkel"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
-        <activity android:name=".Settings.UbahPassword" android:parentActivityName=".Dashboard.SettingsActivity"></activity>
+        <activity android:name=".LupaPassword"></activity>
+        <activity
+            android:name=".Settings.UbahPassword"
+            android:parentActivityName=".Dashboard.SettingsActivity" />
         <activity
             android:name=".Settings.DataPersonal"
             android:parentActivityName=".Dashboard.SettingsActivity" />

@@ -113,6 +113,7 @@
                     android:id="@+id/orderAccept_lokasi"
                     android:layout_below="@id/orderAccept_tv_lokasi"
                     android:text="Jl. Soekarno Hatta"
+                    android:textColor="#ed1c24"
                     android:fontFamily="@font/sf"
                     android:textSize="16dp"/>
 
